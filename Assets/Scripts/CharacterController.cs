@@ -12,7 +12,8 @@ public class CharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
+    
+    //owo random comment 
     void FixedUpdate()
     {
         float move = 0;
