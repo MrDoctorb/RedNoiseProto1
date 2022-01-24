@@ -14,18 +14,47 @@ public class CharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float move;
-        if(redPlayer)
+        float move = 0;
+        if (redPlayer)
         {
-             move = Input.GetAxis("Horizontal");
+            move = Input.GetAxis("Horizontal");
+
         }
         else
         {
-             move = Input.GetAxis("Horizontal2");
+            move = Input.GetAxis("Horizontal2");
+
         }
         if (move != 0)
         {
             rb.AddForce(new Vector2(move * Time.fixedDeltaTime * speed, 0));
         }
+    }
+
+    private void Update()
+    {
+        if(redPlayer)
+        {
+            if(Input.GetKeyDown(KeyCode.S))
+            {
+                rb.mass = 100;
+            }
+            else if(Input.GetKeyUp(KeyCode.S))
+            {
+                rb.mass = 1;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                rb.mass = 100;
+            }
+            else if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                rb.mass = 1;
+            }
+        }
+
     }
 }

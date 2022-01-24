@@ -188,7 +188,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.5
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!50 &258539810
 Rigidbody2D:
   serializedVersion: 4
@@ -337,7 +337,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.5
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!212 &356980410
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!212 &370379694
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -820,7 +820,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.5
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!50 &710881787
 Rigidbody2D:
   serializedVersion: 4
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b214733ed0d657428538d2c4c569ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2000
+  speed: 4000
   redPlayer: 0
 --- !u!212 &710881789
 SpriteRenderer:
@@ -995,7 +995,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.5
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!50 &1176310226
 Rigidbody2D:
   serializedVersion: 4
@@ -1029,7 +1029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b214733ed0d657428538d2c4c569ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2000
+  speed: 4000
   redPlayer: 1
 --- !u!212 &1176310228
 SpriteRenderer:
@@ -1137,7 +1137,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.5
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!50 &1458564417
 Rigidbody2D:
   serializedVersion: 4
@@ -1338,7 +1338,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.5
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!212 &1791738275
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1471,7 +1471,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.5
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 5
 --- !u!50 &2057677642
 Rigidbody2D:
   serializedVersion: 4
