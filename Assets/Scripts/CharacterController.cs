@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public int jumpForce = 1000;
     Rigidbody2D rb;
     [SerializeField] int speed;
     [SerializeField] bool redPlayer;
@@ -35,7 +36,12 @@ public class CharacterController : MonoBehaviour
     {
         if(redPlayer)
         {
-            if(Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                rb.AddForce(Vector2.up * jumpForce);
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 rb.mass = 100;
             }
@@ -46,6 +52,11 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                rb.AddForce(Vector2.up * jumpForce);
+            }
+
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 rb.mass = 100;

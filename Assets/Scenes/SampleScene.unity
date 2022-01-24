@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 258539810}
   - component: {fileID: 258539809}
   - component: {fileID: 258539808}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rope Piece (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 356980408}
   - component: {fileID: 356980409}
   - component: {fileID: 356980412}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rope Piece (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 370379692}
   - component: {fileID: 370379693}
   - component: {fileID: 370379696}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rope Piece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 710881787}
   - component: {fileID: 710881786}
   - component: {fileID: 710881791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,6 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b214733ed0d657428538d2c4c569ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 1000
   speed: 4000
   redPlayer: 0
 --- !u!212 &710881789
@@ -953,7 +954,7 @@ GameObject:
   - component: {fileID: 1176310226}
   - component: {fileID: 1176310225}
   - component: {fileID: 1176310224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b214733ed0d657428538d2c4c569ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 1000
   speed: 4000
   redPlayer: 1
 --- !u!212 &1176310228
@@ -1111,7 +1113,7 @@ GameObject:
   - component: {fileID: 1458564417}
   - component: {fileID: 1458564416}
   - component: {fileID: 1458564420}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rope Piece (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1265,7 +1267,7 @@ GameObject:
   - component: {fileID: 1791738272}
   - component: {fileID: 1791738274}
   - component: {fileID: 1791738273}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rope Piece (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1419,7 +1421,7 @@ GameObject:
   - component: {fileID: 2057677642}
   - component: {fileID: 2057677641}
   - component: {fileID: 2057677640}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rope Piece (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
