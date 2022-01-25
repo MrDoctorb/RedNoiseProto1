@@ -30,6 +30,8 @@ public class RopeSpriteBehaviour : MonoBehaviour
             //Set one of the SpriteShape's vertices to the position of the block
             spriteShape.spline.SetPosition(i, vertex);
 
+            spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
+
             //Draws reference to the SpriteShape's left tangent
             Vector2 leftTangent = spriteShape.spline.GetLeftTangent(i);
 
