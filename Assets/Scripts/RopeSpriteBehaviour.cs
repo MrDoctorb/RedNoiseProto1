@@ -26,6 +26,7 @@ public class RopeSpriteBehaviour : MonoBehaviour
         {
             //Find and call reference to the position of a block in the list
             Vector2 vertex = points[i].localPosition;
+            //Quaternion rotation = points[i].localRotation;
 
             //Set one of the SpriteShape's vertices to the position of the block
             spriteShape.spline.SetPosition(i, vertex);
