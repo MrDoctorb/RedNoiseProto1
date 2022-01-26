@@ -174,7 +174,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 149874125}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 672796810}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -968,7 +968,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 530049145}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 757746204}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -1153,7 +1153,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 575068767}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 1512048839}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -1443,7 +1443,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 672796809}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 1461714180}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -1811,7 +1811,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 757746203}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 1058451288}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -2033,7 +2033,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1058451287}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 149874126}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -3117,7 +3117,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1461714179}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 1576635553}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -3296,7 +3296,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1512048838}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 1920930149}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -3475,7 +3475,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1576635552}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 575068768}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -3793,7 +3793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631121551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.86, y: 4.11, z: 0}
+  m_LocalPosition: {x: 0.87, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3901,9 +3901,9 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -0.75, y: 0, z: 0}
-      leftTangent: {x: -0.02730459, y: 0.0000464975, z: 0}
-      rightTangent: {x: 0.18094277, y: -0.00060129166, z: 0}
+    - position: {x: -0.20294118, y: 0, z: 0}
+      leftTangent: {x: -0.21109, y: -0.00027422234, z: 0}
+      rightTangent: {x: 0.19718568, y: -0.00008401337, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -3912,7 +3912,7 @@ MonoBehaviour:
       corner: 1
       m_CornerMode: 1
     - position: {x: 0.25, y: 0, z: 0}
-      leftTangent: {x: -0.17701045, y: 0.00007939339, z: 0}
+      leftTangent: {x: -0.08017531, y: 0.000035960533, z: 0}
       rightTangent: {x: 0.18703613, y: -0.0002272129, z: 0}
       mode: 1
       height: 1
@@ -3965,10 +3965,10 @@ MonoBehaviour:
   m_FillPixelPerUnit: 256
   m_StretchTiling: 1
   m_SplineDetail: 4
-  m_AdaptiveUV: 0
+  m_AdaptiveUV: 1
   m_StretchUV: 0
-  m_WorldSpaceUV: 0
-  m_CornerAngleThreshold: 30.5
+  m_WorldSpaceUV: 1
+  m_CornerAngleThreshold: 0
   m_ColliderDetail: 16
   m_ColliderOffset: 0
   m_UpdateCollider: 1
@@ -4067,7 +4067,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -2.6300032, y: -0.00027665184}
-  - {x: 2.2500021, y: -0.00076666416}
+  - {x: 2.2500017, y: -0.00076666416}
   - {x: 2.6066709, y: 0.00027596473}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -4482,7 +4482,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1920930148}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -4583,7 +4583,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
