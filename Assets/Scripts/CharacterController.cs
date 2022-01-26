@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] GameObject[] allCordJoints;
     Rigidbody2D rb;
     CharacterController otherPlayer;
-
+    [SerializeField] LayerMask ground;
     /// <summary>
     /// Declare local variables
     /// </summary>
@@ -66,9 +66,17 @@ public class CharacterController : MonoBehaviour
         if (redPlayer)
         {
             //Jump
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) && Physics2D.Raycast((Vector2)transform.position, Vector2.down, 2, ground))
             {
-                rb.AddForce(Vector2.up * jumpForce);
+                if(Connected())
+                {
+                    rb.AddForce(Vector2.up * jumpForce);
+                }
+                else
+                {
+
+                    rb.AddForce(Vector2.up * jumpForce/4);
+                }
             }
 
             //Get heavier on press
@@ -97,9 +105,17 @@ public class CharacterController : MonoBehaviour
         else
         {
             //Jump
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) && Physics2D.Raycast((Vector2)transform.position, Vector2.down, 2, ground))
             {
-                rb.AddForce(Vector2.up * jumpForce);
+                if (Connected())
+                {
+                    rb.AddForce(Vector2.up * jumpForce);
+                }
+                else
+                {
+
+                    rb.AddForce(Vector2.up * jumpForce / 4);
+                }
             }
             //Get heavier on press
             if (Input.GetKeyDown(KeyCode.DownArrow))
