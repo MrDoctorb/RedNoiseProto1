@@ -13,6 +13,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] GameObject[] allCordJoints;
     Rigidbody2D rb;
     CharacterController otherPlayer;
+    bool canTug = true;
+    bool grounded;
     [SerializeField] LayerMask ground;
     /// <summary>
     /// Declare local variables
@@ -37,6 +39,13 @@ public class CharacterController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 2, ground);
+
+        if(grounded)
+        {
+            canTug = true;
+        }
+
         //Uses different controls to differentiate characters
         float move = 0;
         if (redPlayer)
@@ -66,7 +75,7 @@ public class CharacterController : MonoBehaviour
         if (redPlayer)
         {
             //Jump
-            if (Input.GetKeyDown(KeyCode.W) && Physics2D.Raycast((Vector2)transform.position, Vector2.down, 2, ground))
+            if (Input.GetKeyDown(KeyCode.W) && grounded)
             {
                 if(Connected())
                 {
@@ -80,14 +89,14 @@ public class CharacterController : MonoBehaviour
             }
 
             //Get heavier on press
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) && grounded)
             {
-                rb.mass = 100;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
             }
             //Lighter on lift up
             else if (Input.GetKeyUp(KeyCode.S))
             {
-                rb.mass = 1;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             //Attack
             if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -95,7 +104,7 @@ public class CharacterController : MonoBehaviour
                 Attack();
             }
             //Tug
-            if(Input.GetKeyDown(KeyCode.LeftShift))
+            if(Input.GetKeyDown(KeyCode.LeftShift) && canTug)
             {
                 Tug();
             }
@@ -105,7 +114,7 @@ public class CharacterController : MonoBehaviour
         else
         {
             //Jump
-            if (Input.GetKeyDown(KeyCode.UpArrow) && Physics2D.Raycast((Vector2)transform.position, Vector2.down, 2, ground))
+            if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
             {
                 if (Connected())
                 {
@@ -118,14 +127,15 @@ public class CharacterController : MonoBehaviour
                 }
             }
             //Get heavier on press
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) && grounded)
             {
-                rb.mass = 100;
+
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
             }
             //Lighter on lift up
             else if (Input.GetKeyUp(KeyCode.DownArrow))
             {
-                rb.mass = 1;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             //Attack
             if (Input.GetKeyDown(KeyCode.RightControl))
@@ -133,7 +143,7 @@ public class CharacterController : MonoBehaviour
                 Attack();
             }
             //Tug
-            if (Input.GetKeyDown(KeyCode.RightShift))
+            if (Input.GetKeyDown(KeyCode.RightShift) && canTug)
             {
                 Tug();
             }
@@ -146,6 +156,7 @@ public class CharacterController : MonoBehaviour
         Vector2 direction = transform.position - endOfCord.transform.position;
         direction = direction.normalized;
         endOfCord.AddForce(direction * tugForce);
+        canTug = false;
     }
 
 
@@ -155,7 +166,6 @@ public class CharacterController : MonoBehaviour
     /// </summary>
     void Attack()
     {
-        print(Connected());
         //If connected, disconnect
         if (Connected())
         {
