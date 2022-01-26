@@ -31,24 +31,12 @@ public class RopeSpriteBehaviour : MonoBehaviour
             //Set one of the SpriteShape's vertices to the position of the block
             spriteShape.spline.SetPosition(i, vertex);
 
+            //Sets the SpriteShape's tanget mode
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Linear);
 
-            //Draws reference to the SpriteShape's left tangent
-/*            Vector2 leftTangent = spriteShape.spline.GetLeftTangent(i);
-            Vector2 rightTangent = spriteShape.spline.GetRightTangent(i);
-
-            leftTangent = Vector2.zero;*/
-
+            //Draws reference to the SpriteShape's tangents and sets them to 0
             spriteShape.spline.SetRightTangent(i, Vector2.zero);
             spriteShape.spline.SetLeftTangent(i, Vector2.zero);
-
-/*            //Sets the tangents perpendicular to the rope blocks
-            Vector2 newRT = Vector2.Perpendicular(vertex.normalized) * leftTangent.magnitude;
-            Vector2 newLT = -newRT;
-
-            //Set the SpriteShape vertice to the rotation of the block
-            spriteShape.spline.SetRightTangent(i, newRT);
-            spriteShape.spline.SetLeftTangent(i, newLT);*/
 
             //Repeat until list is exhausted
         }
