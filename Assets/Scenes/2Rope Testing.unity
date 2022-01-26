@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 2000
   speed: 2000
-  tugForce: 0
+  tugForce: 1000
   attackForce: 200
   redPlayer: 1
   endOfCord: {fileID: 1514002931}
@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 2000
   speed: 2000
-  tugForce: 0
+  tugForce: 1000
   attackForce: 200
   redPlayer: 0
   endOfCord: {fileID: 1934073663}

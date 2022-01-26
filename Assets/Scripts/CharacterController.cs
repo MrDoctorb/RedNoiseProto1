@@ -86,6 +86,11 @@ public class CharacterController : MonoBehaviour
             {
                 Attack();
             }
+            //Tug
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Tug();
+            }
         }
 
         //Blue Stuff
@@ -111,9 +116,22 @@ public class CharacterController : MonoBehaviour
             {
                 Attack();
             }
+            //Tug
+            if (Input.GetKeyDown(KeyCode.RightShift))
+            {
+                Tug();
+            }
         }
 
     }
+
+    void Tug()
+    {
+        Vector2 direction = transform.position - endOfCord.transform.position;
+        direction = direction.normalized;
+        endOfCord.AddForce(direction * tugForce);
+    }
+
 
     /// <summary>
     /// While connected, this disconnects the players
