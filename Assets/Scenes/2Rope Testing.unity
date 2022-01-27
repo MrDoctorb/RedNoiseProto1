@@ -253,7 +253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &90877099
 Rigidbody2D:
   serializedVersion: 4
@@ -633,7 +633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &241244771
 Rigidbody2D:
   serializedVersion: 4
@@ -1003,7 +1003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &399013912
 Rigidbody2D:
   serializedVersion: 4
@@ -1245,7 +1245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &824973245
 Rigidbody2D:
   serializedVersion: 4
@@ -1579,7 +1579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1206938072
 Rigidbody2D:
   serializedVersion: 4
@@ -1737,7 +1737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1251701929
 Rigidbody2D:
   serializedVersion: 4
@@ -2006,7 +2006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1441545723
 Rigidbody2D:
   serializedVersion: 4
@@ -2164,7 +2164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1514002931
 Rigidbody2D:
   serializedVersion: 4
@@ -2322,7 +2322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1582228416
 Rigidbody2D:
   serializedVersion: 4
@@ -2471,6 +2471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692009657}
   - component: {fileID: 1692009656}
+  - component: {fileID: 1692009658}
   - component: {fileID: 1692009654}
   - component: {fileID: 1692009655}
   m_Layer: 3
@@ -2717,6 +2718,22 @@ Transform:
   m_Father: {fileID: 2092347199}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692009658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692009653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2867f97234eee4589ac66f75c93182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halfLength: 3
+  ropeJoint: {fileID: 2441365947440759860, guid: dd858f7567894194ba7096d024afd435, type: 3}
+  plug: {fileID: 932755958}
+  port: {fileID: 1740041160}
 --- !u!1 &1740041154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,7 +2929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1934073663
 Rigidbody2D:
   serializedVersion: 4

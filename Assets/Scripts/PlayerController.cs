@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] int jumpForce = 1000;
     [SerializeField] int speed;
     [SerializeField] int tugForce;
     [SerializeField] int attackForce;
     [SerializeField] bool redPlayer;
-    public Rigidbody2D endOfCord;
-    [SerializeField] GameObject[] allCordJoints;
+    [SerializeField] Rigidbody2D endOfCord;
+    public List<GameObject> allCordJoints = new List<GameObject>();
     Rigidbody2D rb;
-    CharacterController otherPlayer;
+    PlayerController otherPlayer;
     bool canTug = true;
     bool grounded;
     [SerializeField] LayerMask ground;
@@ -24,13 +24,22 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         //Find the player that isn't us
-        foreach (CharacterController player in FindObjectsOfType<CharacterController>())
+        foreach (PlayerController player in FindObjectsOfType<PlayerController>())
         {
             if (player != this)
             {
                 otherPlayer = player;
                 break;
             }
+        }
+        
+        if(redPlayer)
+        {
+            endOfCord = allCordJoints[allCordJoints.Count - 1].GetComponent<Rigidbody2D>();
+        }
+        else
+        {
+            endOfCord = allCordJoints[0].GetComponent<Rigidbody2D>();
         }
     }
 
@@ -192,7 +201,7 @@ public class CharacterController : MonoBehaviour
     void Connect()
     {
         //Figure out who is blue
-        CharacterController blue = this;
+        PlayerController blue = this;
         if (redPlayer)
         {
             blue = otherPlayer;
@@ -212,6 +221,8 @@ public class CharacterController : MonoBehaviour
 
         blue.GetComponent<HingeJoint2D>().enabled = true;
 
+       // blue.otherPlayer.allCordJoints[0].transform.position = blue.otherPlayer.transform.position + new Vector3(.5f, 0);
+
         //If we end up physically splitting the cord this code will be needed
 
         //partToConnect.GetComponent<HingeJoint2D>().enabled = true;
@@ -222,7 +233,7 @@ public class CharacterController : MonoBehaviour
     {
 
         //Figure out who is blue
-        CharacterController blue = this;
+        PlayerController blue = this;
         if (redPlayer)
         {
             blue = otherPlayer;

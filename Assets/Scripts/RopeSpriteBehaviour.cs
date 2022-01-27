@@ -12,7 +12,7 @@ public class RopeSpriteBehaviour : MonoBehaviour
     //The SpriteShape created for the rope
     public SpriteShapeController spriteShape;
     //An array of points storing the positions of each block in the rope
-    public Transform[] points;
+    public List<Transform> points = new List<Transform>();
 
     // Update is called once per frame
     void Update()
@@ -22,7 +22,7 @@ public class RopeSpriteBehaviour : MonoBehaviour
 
     private void UpdateVertices()
     {
-        for (int i = 0; i < points.Length - 1; i++)
+        for (int i = 0; i < points.Count - 1; i++)
         {
             //Find and call reference to the position of a block in the list
             Vector2 vertex = points[i].localPosition;
