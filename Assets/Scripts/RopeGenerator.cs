@@ -3,20 +3,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 public class RopeGenerator : MonoBehaviour
 {
     [SerializeField] int halfLength;
     [SerializeField] GameObject ropeJoint;
     [SerializeField] PlayerController plug, port;
     RopeSpriteBehaviour rsb;
-    
+    SpriteShapeController sprite;   
     
 
     List<Rigidbody2D> allJoints = new List<Rigidbody2D>();
     void Start()
     {
         rsb = transform.parent.GetComponent<RopeSpriteBehaviour>();
-
+        sprite = GetComponent<SpriteShapeController>();
         //Temp while testing
         plug.allCordJoints.Clear();
         port.allCordJoints.Clear();
@@ -82,7 +83,14 @@ public class RopeGenerator : MonoBehaviour
             rsb.points.Add(joint.transform);
         }
 
-
+        int numPoints = sprite.spline.GetPointCount();
+        print(numPoints);
+        for(int i = 0; i < allJoints.Count - numPoints; ++i)
+        {
+            sprite.spline.InsertPointAt(3, Vector2.up * i);
+        }
+        numPoints = sprite.spline.GetPointCount();
+        print(numPoints);
 
         rsb.points.Add(port.transform);
     }
