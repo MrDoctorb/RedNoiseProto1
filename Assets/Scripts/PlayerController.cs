@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int tugForce;
     [SerializeField] int attackForce;
+    [SerializeField] float tugCooldown;
+    [SerializeField] float maxSpeed;
     [SerializeField] bool redPlayer;
     [SerializeField] Rigidbody2D endOfCord;
     public List<GameObject> allCordJoints = new List<GameObject>();
@@ -16,11 +19,13 @@ public class PlayerController : MonoBehaviour
     bool canTug = true;
     bool grounded;
     [SerializeField] LayerMask ground;
+    [SerializeField] SpriteShapeRenderer ropeSprite;
     /// <summary>
     /// Declare local variables
     /// </summary>
     private void Start()
     {
+        canTug = true;
         rb = GetComponent<Rigidbody2D>();
 
         //Find the player that isn't us
@@ -50,11 +55,6 @@ public class PlayerController : MonoBehaviour
     {
         grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 2, ground);
 
-        if(grounded)
-        {
-            canTug = true;
-        }
-
         //Uses different controls to differentiate characters
         float move = 0;
         if (redPlayer)
@@ -73,6 +73,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(move * Time.fixedDeltaTime * speed, 0));
         }
+
+        //Cap max speed
+        rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, 0, maxSpeed);
     }
 
     /// <summary>
@@ -166,8 +169,14 @@ public class PlayerController : MonoBehaviour
         direction = direction.normalized;
         endOfCord.AddForce(direction * tugForce);
         canTug = false;
+        StartCoroutine(TugCooldown());
     }
 
+    IEnumerator TugCooldown()
+    {
+        yield return new WaitForSeconds(tugCooldown);
+        canTug = true;
+    }
 
     /// <summary>
     /// While connected, this disconnects the players
@@ -211,15 +220,20 @@ public class PlayerController : MonoBehaviour
         //Has to be done in this order otherwise the cord will break
         foreach (GameObject obj in blue.otherPlayer.allCordJoints)
         {
+            obj.transform.position = blue.otherPlayer.transform.position;
             obj.SetActive(true);
         }
 
         foreach (GameObject obj in blue.allCordJoints)
         {
+            obj.transform.position = blue.transform.position;
             obj.SetActive(true);
         }
 
         blue.GetComponent<HingeJoint2D>().enabled = true;
+
+        ropeSprite.enabled = true;
+
 
        // blue.otherPlayer.allCordJoints[0].transform.position = blue.otherPlayer.transform.position + new Vector3(.5f, 0);
 
@@ -256,6 +270,7 @@ public class PlayerController : MonoBehaviour
         }
 
         blue.GetComponent<HingeJoint2D>().enabled = false;
+        ropeSprite.enabled = false;
     }
 
     bool Connected()

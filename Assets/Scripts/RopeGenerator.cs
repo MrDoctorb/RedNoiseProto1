@@ -11,10 +11,8 @@ public class RopeGenerator : MonoBehaviour
     [SerializeField] PlayerController plug, port;
     RopeSpriteBehaviour rsb;
     SpriteShapeController sprite;   
-    
-
     List<Rigidbody2D> allJoints = new List<Rigidbody2D>();
-    void Start()
+    void Awake()
     {
         rsb = transform.parent.GetComponent<RopeSpriteBehaviour>();
         sprite = GetComponent<SpriteShapeController>();
@@ -84,20 +82,11 @@ public class RopeGenerator : MonoBehaviour
         }
 
         int numPoints = sprite.spline.GetPointCount();
-        print(numPoints);
         for(int i = 0; i < allJoints.Count - numPoints; ++i)
         {
             sprite.spline.InsertPointAt(3, Vector2.up * i);
         }
         numPoints = sprite.spline.GetPointCount();
-        print(numPoints);
-
         rsb.points.Add(port.transform);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

@@ -1482,6 +1482,8 @@ MonoBehaviour:
   speed: 1000
   tugForce: 1000
   attackForce: 100
+  tugCooldown: 1
+  maxSpeed: 10
   redPlayer: 1
   endOfCord: {fileID: 1514002931}
   allCordJoints:
@@ -1493,6 +1495,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 512
+  ropeSprite: {fileID: 1692009656}
 --- !u!212 &932755959
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2847,6 +2850,8 @@ MonoBehaviour:
   speed: 1000
   tugForce: 1000
   attackForce: 100
+  tugCooldown: 1
+  maxSpeed: 10
   redPlayer: 0
   endOfCord: {fileID: 1934073663}
   allCordJoints:
@@ -2858,6 +2863,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 512
+  ropeSprite: {fileID: 1692009656}
 --- !u!212 &1740041161
 SpriteRenderer:
   m_ObjectHideFlags: 0
