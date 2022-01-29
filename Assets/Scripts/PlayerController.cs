@@ -5,8 +5,9 @@ using UnityEngine.U2D;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] int jumpForce = 1000;
+    [SerializeField] int jumpForce = 5000;
     [SerializeField] int speed;
+    [SerializeField] int gravity = 100;
     [SerializeField] int tugForce;
     [SerializeField] int attackForce;
     [SerializeField] float tugCooldown;
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 2, ground);
+        grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 1.25f, ground);
 
         //Uses different controls to differentiate characters
         float move = 0;
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+
         //Red Stuff
         if (redPlayer)
         {
@@ -91,12 +93,14 @@ public class PlayerController : MonoBehaviour
             {
                 if(Connected())
                 {
-                    rb.AddForce(Vector2.up * jumpForce);
+                    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    //rb.velocity += Vector2.up * jumpForce;
                 }
                 else
                 {
 
-                    rb.AddForce(Vector2.up * jumpForce/4);
+                    rb.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
+                    //rb.velocity += Vector2.up * jumpForce * 2;
                 }
             }
 
@@ -130,12 +134,14 @@ public class PlayerController : MonoBehaviour
             {
                 if (Connected())
                 {
-                    rb.AddForce(Vector2.up * jumpForce);
+                    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    //rb.velocity += Vector2.up * jumpForce;
                 }
                 else
                 {
 
-                    rb.AddForce(Vector2.up * jumpForce / 4);
+                    rb.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
+                    //rb.velocity += Vector2.up * jumpForce * 2;
                 }
             }
             //Get heavier on press
@@ -161,6 +167,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(!grounded)
+        {
+            rb.AddRelativeForce(new Vector2(rb.velocity.x, 0));
+            Invoke("Gravity", 0.01f);
+        }
+    }
+
+    void Gravity()
+    {
+        //Constant Gravity Modifier
+        rb.velocity += new Vector2(0, -gravity * Time.deltaTime);
     }
 
     void Tug()
