@@ -215,7 +215,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.08
   m_Points:
   - {x: -2.6300032, y: -0.00027665184}
   - {x: 2.2500017, y: -0.00076666416}
@@ -2839,7 +2839,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2897,9 +2897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b214733ed0d657428538d2c4c569ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 30
-  speed: 1000
-  gravity: 100
+  jumpForce: 50
+  speed: 4500
   tugForce: 1000
   attackForce: 100
   tugCooldown: 1
@@ -4696,7 +4695,7 @@ GameObject:
   - component: {fileID: 1789496843}
   - component: {fileID: 1789496842}
   m_Layer: 8
-  m_Name: Interactibles
+  m_Name: Interactables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4967,7 +4966,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4985,9 +4984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b214733ed0d657428538d2c4c569ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 30
-  speed: 1000
-  gravity: 100
+  jumpForce: 50
+  speed: 4500
   tugForce: 1000
   attackForce: 100
   tugCooldown: 1
