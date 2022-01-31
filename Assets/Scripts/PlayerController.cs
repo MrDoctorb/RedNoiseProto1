@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
-        
-        if(redPlayer)
+
+        if (redPlayer)
         {
             endOfCord = allCordJoints[allCordJoints.Count - 1].GetComponent<Rigidbody2D>();
         }
@@ -72,11 +72,18 @@ public class PlayerController : MonoBehaviour
         //As long as there is some input, move
         if (move != 0)
         {
-            rb.AddForce(new Vector2(move * Time.fixedDeltaTime * speed, 0));
+            if (Connected())
+            {
+                rb.AddForce(new Vector2(move * Time.fixedDeltaTime * speed, 0));
+            }
+            else
+            {
+                rb.AddForce(new Vector2(move * Time.fixedDeltaTime * (speed / 2), 0));
+            }
         }
 
         //Cap max speed
-       rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, 0, maxSpeed);
+        rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, 0, maxSpeed);
     }
 
     /// <summary>
@@ -91,7 +98,7 @@ public class PlayerController : MonoBehaviour
             //Jump
             if (Input.GetKeyDown(KeyCode.W) && grounded)
             {
-                if(Connected())
+                if (Connected())
                 {
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                     //rb.velocity += Vector2.up * jumpForce;
@@ -120,7 +127,7 @@ public class PlayerController : MonoBehaviour
                 Attack();
             }
             //Tug
-            if(Input.GetKeyDown(KeyCode.LeftShift) && canTug)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canTug)
             {
                 Tug();
             }
@@ -167,11 +174,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-       /* if(!grounded)
-        {
-            rb.AddRelativeForce(new Vector2(rb.velocity.x, 0));
-            Invoke("Gravity", 0.01f);
-        }*/
+        /* if(!grounded)
+         {
+             rb.AddRelativeForce(new Vector2(rb.velocity.x, 0));
+             Invoke("Gravity", 0.01f);
+         }*/
     }
 
     /*void Gravity()
@@ -252,7 +259,7 @@ public class PlayerController : MonoBehaviour
         ropeSprite.enabled = true;
 
 
-       // blue.otherPlayer.allCordJoints[0].transform.position = blue.otherPlayer.transform.position + new Vector3(.5f, 0);
+        // blue.otherPlayer.allCordJoints[0].transform.position = blue.otherPlayer.transform.position + new Vector3(.5f, 0);
 
         //If we end up physically splitting the cord this code will be needed
 
@@ -271,7 +278,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Use this code if we end up physically splitting the code
-        
+
         //partToDisconnect.GetComponent<HingeJoint2D>().enabled = false;
 
 
