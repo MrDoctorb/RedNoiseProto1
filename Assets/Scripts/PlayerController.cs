@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] int jumpForce = 5000;
     [SerializeField] int speed;
-    //[SerializeField] int gravity = 100;
+    [SerializeField] int gravity = 100;
     [SerializeField] int tugForce;
     [SerializeField] int attackForce;
     [SerializeField] float tugCooldown;
@@ -83,7 +83,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //Cap max speed
-        rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, 0, maxSpeed);
+        float xCap = Mathf.Clamp(Mathf.Abs(rb.velocity.x), 0, maxSpeed);
+        rb.velocity = new Vector2(xCap * Mathf.Sign(rb.velocity.x), rb.velocity.y);
     }
 
     /// <summary>
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
 
-                    rb.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
+                    rb.AddForce(Vector2.up * jumpForce / 2, ForceMode2D.Impulse);
                     //rb.velocity += Vector2.up * jumpForce * 2;
                 }
             }
@@ -174,18 +175,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        /* if(!grounded)
+         if(!grounded)
          {
-             rb.AddRelativeForce(new Vector2(rb.velocity.x, 0));
              Invoke("Gravity", 0.01f);
-         }*/
+         }
     }
 
-    /*void Gravity()
+    void Gravity()
     {
         //Constant Gravity Modifier
         rb.velocity += new Vector2(0, -gravity * Time.deltaTime);
-    }*/
+    }
 
     void Tug()
     {
