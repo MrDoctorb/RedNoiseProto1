@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Rope
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Red
+  - Blue
+  - Interactable
+  - Ground
   - 
   - 
   - 
