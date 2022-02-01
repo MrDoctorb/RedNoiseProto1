@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 237467}
   - component: {fileID: 237464}
   m_Layer: 3
-  m_Name: Rope Sprite
+  m_Name: Red Rope Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3902,6 +3902,7 @@ MonoBehaviour:
   attackForce: 100
   tugCooldown: 1
   maxSpeed: 25
+  slowdownRate: 0.75
   redPlayer: 1
   endOfCord: {fileID: 0}
   allCordJoints:
@@ -36273,6 +36274,7 @@ MonoBehaviour:
   attackForce: 100
   tugCooldown: 1
   maxSpeed: 25
+  slowdownRate: 0.75
   redPlayer: 0
   endOfCord: {fileID: 0}
   allCordJoints:

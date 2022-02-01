@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int attackForce;
     [SerializeField] float tugCooldown;
     [SerializeField] float maxSpeed;
+    [Range(0f, 1f)] [SerializeField] float slowdownRate;
     [SerializeField] bool redPlayer;
     [SerializeField] Rigidbody2D endOfCord;
     public List<GameObject> allCordJoints = new List<GameObject>();
@@ -80,11 +81,15 @@ public class PlayerController : MonoBehaviour
             {
                 rb.AddForce(new Vector2(move * Time.fixedDeltaTime * (speed / 2), 0));
             }
-        }
 
-        //Cap max speed
-        float xCap = Mathf.Clamp(Mathf.Abs(rb.velocity.x), 0, maxSpeed);
-        rb.velocity = new Vector2(xCap * Mathf.Sign(rb.velocity.x), rb.velocity.y);
+            //Cap max speed
+            float xCap = Mathf.Clamp(Mathf.Abs(rb.velocity.x), 0, maxSpeed);
+            rb.velocity = new Vector2(xCap * Mathf.Sign(rb.velocity.x), rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
+        }
     }
 
     /// <summary>
@@ -175,10 +180,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-         if(!grounded)
-         {
-             Invoke("Gravity", 0.01f);
-         }
+        if (!grounded)
+        {
+            Invoke("Gravity", 0.01f);
+        }
     }
 
     void Gravity()
@@ -242,7 +247,7 @@ public class PlayerController : MonoBehaviour
 
         //Reactivate objects going from red -> blue
         //Has to be done in this order otherwise the cord will break
-        foreach (GameObject obj in blue.otherPlayer.allCordJoints)
+        /*foreach (GameObject obj in blue.otherPlayer.allCordJoints)
         {
             obj.transform.position = blue.otherPlayer.transform.position;
             obj.SetActive(true);
@@ -256,14 +261,14 @@ public class PlayerController : MonoBehaviour
 
         blue.GetComponent<HingeJoint2D>().enabled = true;
 
-        ropeSprite.enabled = true;
+        ropeSprite.enabled = true;*/
 
 
         // blue.otherPlayer.allCordJoints[0].transform.position = blue.otherPlayer.transform.position + new Vector3(.5f, 0);
 
         //If we end up physically splitting the cord this code will be needed
 
-        //partToConnect.GetComponent<HingeJoint2D>().enabled = true;
+        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = true;
 
     }
 
@@ -279,11 +284,11 @@ public class PlayerController : MonoBehaviour
 
         //Use this code if we end up physically splitting the code
 
-        //partToDisconnect.GetComponent<HingeJoint2D>().enabled = false;
+        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = false;
 
 
         //Turn off all cord joins, order doesn't matter
-        foreach (GameObject obj in allCordJoints)
+       /* foreach (GameObject obj in allCordJoints)
         {
             obj.SetActive(false);
         }
@@ -294,7 +299,7 @@ public class PlayerController : MonoBehaviour
         }
 
         blue.GetComponent<HingeJoint2D>().enabled = false;
-        ropeSprite.enabled = false;
+        ropeSprite.enabled = false;*/
     }
 
     bool Connected()
