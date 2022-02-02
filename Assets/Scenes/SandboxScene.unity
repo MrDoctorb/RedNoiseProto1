@@ -292,7 +292,7 @@ MonoBehaviour:
   m_StretchUV: 0
   m_WorldSpaceUV: 1
   m_CornerAngleThreshold: 0
-  m_ColliderDetail: 16
+  m_ColliderDetail: 4
   m_ColliderOffset: 0
   m_UpdateCollider: 1
   m_OptimizeCollider: 1
@@ -3702,9 +3702,9 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.08
   m_Points:
-  - {x: -2.6300032, y: -0.00027665184}
+  - {x: -2.6100032, y: -0.00030243085}
   - {x: -1.1637552, y: -0.00076666573}
-  - {x: -0.8070885, y: -0.0006588707}
+  - {x: -0.82375515, y: -0.00066390727}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -3754,7 +3754,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-  m_SpriteShape: {fileID: 11400000, guid: 77a8fb0b118487d4aa4775b0290e1fb9, type: 2}
+  m_SpriteShape: {fileID: 11400000, guid: 1a1c5f6284460274795609f5b8cc6b42, type: 2}
   m_FillPixelPerUnit: 256
   m_StretchTiling: 1
   m_SplineDetail: 4
@@ -3830,7 +3830,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 23ee71af5644b564da0d486ea6c0323b, type: 3}
+  - {fileID: 21300000, guid: 9c07de35d473aa74c99f89a3bbec46af, type: 3}
   - {fileID: 454563274, guid: 23ee71af5644b564da0d486ea6c0323b, type: 3}
   - {fileID: 409831018, guid: 23ee71af5644b564da0d486ea6c0323b, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -3840,8 +3840,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -1.7193568, y: 0.00014182925, z: 0}
-    m_Extent: {x: 0.9124167, y: 0.38367742, z: 0}
+    m_Center: {x: -1.7176902, y: 0.00012895465, z: 0}
+    m_Extent: {x: 0.8940833, y: 0.38366455, z: 0}
 --- !u!1 &703972927
 GameObject:
   m_ObjectHideFlags: 0
