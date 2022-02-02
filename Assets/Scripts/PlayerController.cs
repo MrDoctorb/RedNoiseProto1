@@ -25,6 +25,13 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Declare local variables
     /// </summary>
+    /// 
+
+    public void JumpTest()
+    {
+        print("jump");
+    }
+
     private void Start()
     {
         canTug = true;
@@ -91,6 +98,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
         }
     }
+
+
 
     /// <summary>
     /// Single Button Press input

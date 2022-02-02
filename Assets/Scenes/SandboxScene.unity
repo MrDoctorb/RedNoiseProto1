@@ -3934,6 +3934,7 @@ GameObject:
   - component: {fileID: 982099059}
   - component: {fileID: 982099061}
   - component: {fileID: 982099060}
+  - component: {fileID: 982099065}
   m_Layer: 6
   m_Name: Plug
   m_TagString: Untagged
@@ -4101,6 +4102,72 @@ Transform:
   m_Father: {fileID: 1218034944}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982099065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982099058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 596dd9bc06a08eb4c9c536d2c0d86795, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31ea306f-6fbb-4fe9-b30e-414788edd65e
+    m_ActionName: PlayerControl1/Movement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 982099062}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: JumpTest
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f002bf04-e018-46ce-89da-098ac6bcc3f7
+    m_ActionName: PlayerControl1/Jump[/Keyboard/w,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d8272b4e-e0c0-47db-8ffa-03b01c18b462
+    m_ActionName: PlayerControl1/Tug[/Keyboard/leftShift,/Keyboard/rightShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9508e200-2d10-4965-8e01-6a897e9e9d9f
+    m_ActionName: PlayerControl1/Stick[/Keyboard/s,/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 91898d00-02d2-41fb-b46e-6654a10f2709
+    m_ActionName: PlayerControl1/Connect[/Keyboard/leftCtrl,/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c9c6132-e974-4ba8-ae6f-ae247d3cdf33
+    m_ActionName: PlayerControl1/Disconnect[/Keyboard/leftCtrl,/Keyboard/rightCtrl]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: PlayerControl
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1180360202
 GameObject:
   m_ObjectHideFlags: 0
@@ -36283,6 +36350,7 @@ GameObject:
   - component: {fileID: 1860612655}
   - component: {fileID: 1860612654}
   - component: {fileID: 1860612653}
+  - component: {fileID: 1860612658}
   m_Layer: 7
   m_Name: Port
   m_TagString: Untagged
@@ -36450,6 +36518,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1860612658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860612651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 596dd9bc06a08eb4c9c536d2c0d86795, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31ea306f-6fbb-4fe9-b30e-414788edd65e
+    m_ActionName: PlayerControl/Movement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1860612656}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: JumpTest
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f002bf04-e018-46ce-89da-098ac6bcc3f7
+    m_ActionName: PlayerControl/Jump[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d8272b4e-e0c0-47db-8ffa-03b01c18b462
+    m_ActionName: PlayerControl/Tug[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9508e200-2d10-4965-8e01-6a897e9e9d9f
+    m_ActionName: PlayerControl/Stick[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 91898d00-02d2-41fb-b46e-6654a10f2709
+    m_ActionName: PlayerControl/Connect[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c9c6132-e974-4ba8-ae6f-ae247d3cdf33
+    m_ActionName: PlayerControl/Disconnect[/Keyboard/leftCtrl]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Keyboard2
+  m_DefaultActionMap: PlayerControl
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1979793459
 GameObject:
   m_ObjectHideFlags: 0
