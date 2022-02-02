@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int gravity = 100;
     [SerializeField] int tugForce;
     [SerializeField] int attackForce;
+    [SerializeField] float reelSpeed;
     [SerializeField] float tugCooldown;
     [SerializeField] float maxSpeed;
     [Range(0f, 1f)] [SerializeField] float slowdownRate;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     PlayerController otherPlayer;
     bool canTug = true;
     bool grounded;
+    Vector2 stickPos;
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
     /// <summary>
@@ -130,6 +132,11 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.S) && grounded)
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                stickPos = transform.position;
+            }
+            else if(Input.GetKey(KeyCode.S) && grounded)
+            {
+                transform.position = stickPos;
             }
             //Lighter on lift up
             else if (Input.GetKeyUp(KeyCode.S))
@@ -145,6 +152,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift) && canTug)
             {
                 Tug();
+            }
+            else if (Input.GetKey(KeyCode.LeftShift))
+            {
+                Reel();
             }
         }
 
@@ -171,6 +182,11 @@ public class PlayerController : MonoBehaviour
             {
 
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                stickPos = transform.position;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow) && grounded)
+            {
+                transform.position = stickPos;
             }
             //Lighter on lift up
             else if (Input.GetKeyUp(KeyCode.DownArrow))
@@ -186,6 +202,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightShift) && canTug)
             {
                 Tug();
+            }
+            else if(Input.GetKey(KeyCode.RightShift))
+            {
+                Reel();
             }
         }
 
@@ -214,6 +234,15 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(tugCooldown);
         canTug = true;
+    }
+
+    void Reel()
+    {
+        Vector2 direction = transform.position - endOfCord.transform.position;
+        direction = direction.normalized;
+        endOfCord.AddForce(direction * reelSpeed * Time.deltaTime);
+        rb.AddForce(-direction * reelSpeed * Time.deltaTime);
+        print("AA");
     }
 
     /// <summary>

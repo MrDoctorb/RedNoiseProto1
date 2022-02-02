@@ -4020,6 +4020,7 @@ MonoBehaviour:
   gravity: 100
   tugForce: 1000
   attackForce: 100
+  reelSpeed: 10000
   tugCooldown: 1
   maxSpeed: 25
   slowdownRate: 0.75
@@ -36451,6 +36452,7 @@ MonoBehaviour:
   gravity: 100
   tugForce: 1000
   attackForce: 100
+  reelSpeed: 10000
   tugCooldown: 1
   maxSpeed: 25
   slowdownRate: 0.75
