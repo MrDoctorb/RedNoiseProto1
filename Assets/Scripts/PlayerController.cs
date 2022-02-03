@@ -31,21 +31,12 @@ public class PlayerController : MonoBehaviour
     //vars for input system
     private float moveInput;
   
-    private void Awake()
-    {
-        InputActions inputAction = new InputActions();
-        inputAction.PlayerControl.Enable();
-        inputAction.PlayerControl.Jump.performed += Jump;
-        inputAction.PlayerControl.Movement.performed += Movement;
-    }
+ 
     public void Jump(InputAction.CallbackContext context)
     {
         print("jump");
     }
-    public void Movement(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>().x;
-    }
+    
     private void Start()
     {
         canTug = true;
@@ -75,9 +66,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        float moveX = moveInput;
-        rb.AddForce(new Vector2(moveX * Time.fixedDeltaTime * speed, 0));
-        /*
+       
         grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 1.25f, ground);
 
         //Uses different controls to differentiate characters
@@ -113,7 +102,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
         }
-        */
+      
     }
 
 
