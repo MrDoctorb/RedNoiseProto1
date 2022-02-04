@@ -22,10 +22,7 @@ public class PlayerController : MonoBehaviour
     bool grounded;
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
-    /// <summary>
-    /// Declare local variables
-    /// </summary>
-    /// 
+   
 
     private PlayerInput playerInput;
     private InputActionScript inputScript;
@@ -33,8 +30,14 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         inputScript = new InputActionScript();
+        inputScript.PlayerControl.Movement.ReadValue<Vector2>();
     }
 
+
+    /// <summary>
+    /// Declare local variables
+    /// </summary>
+    /// 
     private void Start()
     {
         canTug = true;
@@ -59,13 +62,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    Vector2 moveInput;
     /// <summary>
     /// Physics movement
     /// </summary>
     void FixedUpdate()
     {
-       
        grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 1.25f, ground);
+
+        if (Connected())
+        {
+            rb.AddForce(new Vector2(moveInput.x * Time.fixedDeltaTime * speed, 0));
+        }
+        else
+        {
+            rb.AddForce(new Vector2(moveInput.x * Time.fixedDeltaTime * (speed / 2), 0));
+        }
+
+        //Cap max speed
+        float xCap = Mathf.Clamp(Mathf.Abs(rb.velocity.x), 0, maxSpeed);
+        rb.velocity = new Vector2(xCap * Mathf.Sign(rb.velocity.x), rb.velocity.y);
+
+
         /*
         //Uses different controls to differentiate characters
         float move = 0;
@@ -100,10 +118,15 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
         }*/
-      
+
     }
 
-
+    
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+        print("moving" + context.phase);
+    }
     public void OnJump(InputAction.CallbackContext context)
     {
         if(context.performed)
