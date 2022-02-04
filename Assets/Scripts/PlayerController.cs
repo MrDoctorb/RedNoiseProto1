@@ -27,16 +27,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     /// 
 
-
-    //vars for input system
-    private float moveInput;
-  
- 
-    public void Jump(InputAction.CallbackContext context)
+    private PlayerInput playerInput;
+    private InputActionScript inputScript;
+    private void Awake()
     {
-        print("jump");
+        playerInput = GetComponent<PlayerInput>();
+        inputScript = new InputActionScript();
     }
-    
+
     private void Start()
     {
         canTug = true;
@@ -67,8 +65,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
        
-        grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 1.25f, ground);
-
+       grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 1.25f, ground);
+        /*
         //Uses different controls to differentiate characters
         float move = 0;
         if (redPlayer)
@@ -101,19 +99,39 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
-        }
+        }*/
       
     }
 
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            print("jump" + context.phase);
+            //Jump
+            if (grounded)
+            {
+                if (Connected())
+                {
+                    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    //rb.velocity += Vector2.up * jumpForce;
+                }
+                else
+                {
+                    rb.AddForce(Vector2.up * jumpForce / 2, ForceMode2D.Impulse);
 
+                }
+            }
+        }
+    }
     /// <summary>
     /// Single Button Press input
     /// </summary>
     private void Update()
     {
 
-        //Red Stuff
+        /*//Red Stuff
         if (redPlayer)
         {
             //Jump
@@ -198,7 +216,7 @@ public class PlayerController : MonoBehaviour
         if (!grounded)
         {
             Invoke("Gravity", 0.01f);
-        }
+        }*/
     }
 
     void Gravity()
