@@ -35,7 +35,7 @@ public class NewPlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-       print("jump" + context.phase);
+        print("jump" + context.phase);
         rb.AddForce(Vector2.up * 75, ForceMode2D.Impulse);
     }
 
