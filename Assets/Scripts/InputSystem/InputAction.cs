@@ -37,6 +37,15 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Stick"",
+                    ""type"": ""Button"",
+                    ""id"": ""53cdc077-b306-46ab-af5b-6a8f6e7a2bca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""72c42d67-e9cf-43d2-89c1-512aa9c72eb5"",
@@ -44,6 +53,33 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Tug"",
+                    ""type"": ""Button"",
+                    ""id"": ""e06dd92a-738c-49ef-85fe-484f86c945a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Connect"",
+                    ""type"": ""Button"",
+                    ""id"": ""70906d5f-cb63-4735-ac31-9a1a4cb9c485"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Disconnect"",
+                    ""type"": ""Button"",
+                    ""id"": ""21df2f9a-278b-4589-a661-0bc43e96b47d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -71,7 +107,7 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f1efe1d3-a8b2-4e95-ad51-900d30828f73"",
+                    ""id"": ""43e61b24-9271-4faf-ba9e-c18938c6a7be"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -156,6 +192,138 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3c4ad77-93f8-474b-95c0-aec18a70111d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Tug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08c2a2e0-ab86-40d3-8d50-1a7d77a2ddb2"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Tug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdd7a678-93a7-4f5b-ad73-572c0c352e0e"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Tug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b82ce460-be84-413b-a22c-5aef63aa840c"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Connect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d2b92b5-08fe-435c-8264-7ec44e3c4083"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Connect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fac07f3e-c78e-4913-a1a9-d636879897b3"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Connect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""285dd5f5-7d19-47dd-a7a0-7181fae26096"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Disconnect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcd9e07f-7346-41db-90a7-613a8fd57e72"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Disconnect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a39b06b7-86d8-4b8b-9ebe-7eb07969b1c6"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Disconnect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de566cdf-9281-4d05-b462-99054c213e9d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef1cefe4-8324-4c47-a16e-1d63df5a91b5"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5878204-cf4b-4440-8e7f-cfc8e7700c1a"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard2"",
+                    ""action"": ""Stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -199,7 +367,11 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
         // PlayerControl
         m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
         m_PlayerControl_Jump = m_PlayerControl.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerControl_Stick = m_PlayerControl.FindAction("Stick", throwIfNotFound: true);
         m_PlayerControl_Movement = m_PlayerControl.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerControl_Tug = m_PlayerControl.FindAction("Tug", throwIfNotFound: true);
+        m_PlayerControl_Connect = m_PlayerControl.FindAction("Connect", throwIfNotFound: true);
+        m_PlayerControl_Disconnect = m_PlayerControl.FindAction("Disconnect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,13 +432,21 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerControl;
     private IPlayerControlActions m_PlayerControlActionsCallbackInterface;
     private readonly InputAction m_PlayerControl_Jump;
+    private readonly InputAction m_PlayerControl_Stick;
     private readonly InputAction m_PlayerControl_Movement;
+    private readonly InputAction m_PlayerControl_Tug;
+    private readonly InputAction m_PlayerControl_Connect;
+    private readonly InputAction m_PlayerControl_Disconnect;
     public struct PlayerControlActions
     {
         private @InputActionScript m_Wrapper;
         public PlayerControlActions(@InputActionScript wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_PlayerControl_Jump;
+        public InputAction @Stick => m_Wrapper.m_PlayerControl_Stick;
         public InputAction @Movement => m_Wrapper.m_PlayerControl_Movement;
+        public InputAction @Tug => m_Wrapper.m_PlayerControl_Tug;
+        public InputAction @Connect => m_Wrapper.m_PlayerControl_Connect;
+        public InputAction @Disconnect => m_Wrapper.m_PlayerControl_Disconnect;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -279,9 +459,21 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnJump;
+                @Stick.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnStick;
+                @Stick.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnStick;
+                @Stick.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnStick;
                 @Movement.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnMovement;
+                @Tug.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnTug;
+                @Tug.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnTug;
+                @Tug.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnTug;
+                @Connect.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnConnect;
+                @Connect.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnConnect;
+                @Connect.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnConnect;
+                @Disconnect.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnDisconnect;
+                @Disconnect.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnDisconnect;
+                @Disconnect.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnDisconnect;
             }
             m_Wrapper.m_PlayerControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -289,9 +481,21 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Stick.started += instance.OnStick;
+                @Stick.performed += instance.OnStick;
+                @Stick.canceled += instance.OnStick;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Tug.started += instance.OnTug;
+                @Tug.performed += instance.OnTug;
+                @Tug.canceled += instance.OnTug;
+                @Connect.started += instance.OnConnect;
+                @Connect.performed += instance.OnConnect;
+                @Connect.canceled += instance.OnConnect;
+                @Disconnect.started += instance.OnDisconnect;
+                @Disconnect.performed += instance.OnDisconnect;
+                @Disconnect.canceled += instance.OnDisconnect;
             }
         }
     }
@@ -326,6 +530,10 @@ public partial class @InputActionScript : IInputActionCollection2, IDisposable
     public interface IPlayerControlActions
     {
         void OnJump(InputAction.CallbackContext context);
+        void OnStick(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnTug(InputAction.CallbackContext context);
+        void OnConnect(InputAction.CallbackContext context);
+        void OnDisconnect(InputAction.CallbackContext context);
     }
 }
