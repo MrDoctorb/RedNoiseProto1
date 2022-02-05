@@ -24,15 +24,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteShapeRenderer ropeSprite;
    
 
-    private PlayerInput playerInput;
-    private InputActionScript inputScript;
-    private void Awake()
-    {
-        playerInput = GetComponent<PlayerInput>();
-        inputScript = new InputActionScript();
-        inputScript.PlayerControl.Movement.ReadValue<Vector2>();
-    }
-
 
     /// <summary>
     /// Declare local variables
@@ -62,29 +53,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    Vector2 moveInput;
+   
     /// <summary>
     /// Physics movement
     /// </summary>
     void FixedUpdate()
     {
        grounded = Physics2D.Raycast((Vector2)transform.position, Vector2.down, 1.25f, ground);
-
-        if (Connected())
-        {
-            rb.AddForce(new Vector2(moveInput.x * Time.fixedDeltaTime * speed, 0));
-        }
-        else
-        {
-            rb.AddForce(new Vector2(moveInput.x * Time.fixedDeltaTime * (speed / 2), 0));
-        }
-
-        //Cap max speed
-        float xCap = Mathf.Clamp(Mathf.Abs(rb.velocity.x), 0, maxSpeed);
-        rb.velocity = new Vector2(xCap * Mathf.Sign(rb.velocity.x), rb.velocity.y);
-
-
-        /*
+      
         //Uses different controls to differentiate characters
         float move = 0;
         if (redPlayer)
@@ -117,44 +93,18 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
-        }*/
+        }
 
     }
 
     
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();
-        print("moving" + context.phase);
-    }
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if(context.performed)
-        {
-            print("jump" + context.phase);
-            //Jump
-            if (grounded)
-            {
-                if (Connected())
-                {
-                    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                    //rb.velocity += Vector2.up * jumpForce;
-                }
-                else
-                {
-                    rb.AddForce(Vector2.up * jumpForce / 2, ForceMode2D.Impulse);
-
-                }
-            }
-        }
-    }
+   
     /// <summary>
     /// Single Button Press input
     /// </summary>
     private void Update()
     {
 
-        /*//Red Stuff
         if (redPlayer)
         {
             //Jump
@@ -239,7 +189,7 @@ public class PlayerController : MonoBehaviour
         if (!grounded)
         {
             Invoke("Gravity", 0.01f);
-        }*/
+        }
     }
 
     void Gravity()
