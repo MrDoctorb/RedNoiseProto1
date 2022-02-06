@@ -63,6 +63,15 @@ public class PlayerController : MonoBehaviour
             GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
             end.transform.SetParent(endOfCord.transform);
         }
+
+        if(!redPlayer)
+        {
+            DistanceJoint2D connector = endOfCord.gameObject.AddComponent<DistanceJoint2D>();
+            connector.autoConfigureDistance = false;
+            connector.connectedBody = otherPlayer.endOfCord;
+            connector.distance = 0;
+            connector.enabled = false;
+        }
     }
 
     /// <summary>
@@ -311,7 +320,7 @@ public class PlayerController : MonoBehaviour
 
         //If we end up physically splitting the cord this code will be needed
 
-        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = true;
+        blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = true;
 
     }
 
@@ -327,7 +336,7 @@ public class PlayerController : MonoBehaviour
 
         //Use this code if we end up physically splitting the code
 
-        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = false;
+        blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = false;
 
 
         //Turn off all cord joins, order doesn't matter
@@ -353,7 +362,7 @@ public class PlayerController : MonoBehaviour
         {
             partToCheck = otherPlayer.endOfCord;
         }
-        return partToCheck.GetComponent<HingeJoint2D>().isActiveAndEnabled;
+        return partToCheck.GetComponent<DistanceJoint2D>().isActiveAndEnabled;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
