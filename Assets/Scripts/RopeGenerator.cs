@@ -83,12 +83,12 @@ public class RopeGenerator : MonoBehaviour
 
                 }*/
 
-        if (!player.redPlayer)
+        /*if (!player.redPlayer)
         {
             //Put port in the right spot and set his joint
             transform.position = allJoints[0].transform.position + new Vector3(-.5f, 0);
             GetComponent<HingeJoint2D>().connectedBody = allJoints[0];
-        }
+        }*/
 
 
         //Add all the joints (and port) to the rope sprite script
@@ -98,7 +98,7 @@ public class RopeGenerator : MonoBehaviour
             joint.transform.SetParent(transform);
         }
 
-        for (int i = 0; i <= allJoints.Count / 2; ++i)
+        for (int i = 0; i < allJoints.Count; ++i)
         {
             rsb.points.Add(allJoints[i].transform);
         }/*
@@ -107,22 +107,19 @@ public class RopeGenerator : MonoBehaviour
             rsbBlue.points.Add(allJoints[i].transform);
         }*/
 
-        int numPointsRed = sprite.spline.GetPointCount();
-        for (int i = 0; i < allJoints.Count / 2 - numPointsRed; ++i)
+        //int numPointsRed = sprite.spline.GetPointCount();
+        sprite.spline.Clear();
+        for (int i = 0; i < allJoints.Count - 1; ++i)
         {
-            sprite.spline.InsertPointAt(3, Vector2.up * i);
+            sprite.spline.InsertPointAt(0, Vector2.up * i);
         }
-        numPointsRed = sprite.spline.GetPointCount();
 
+        rsb.points.Add(transform);
         /*int numPointsBlue = spriteBlue.spline.GetPointCount();
         for (int i = 0; i < allJoints.Count / 2 - numPointsBlue; ++i)
         {
             spriteBlue.spline.InsertPointAt(3, Vector2.up * i);
         }*/
         // numPointsBlue = spriteBlue.spline.GetPointCount();
-        if (!player.redPlayer)
-        {
-            rsb.points.Insert(0, transform);
-        }
     }
 }

@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     Vector2 stickPos;
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
+    GameObject end;
     /// <summary>
     /// Declare local variables
     /// </summary>
@@ -54,13 +55,22 @@ public class PlayerController : MonoBehaviour
 
         if (redPlayer)
         {
-            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
+            end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
             end.transform.SetParent(endOfCord.transform);
         }
         else
         {
-            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
+            end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
             end.transform.SetParent(endOfCord.transform);
+        }
+
+        if (!redPlayer)
+        {
+            DistanceJoint2D connector = endOfCord.gameObject.AddComponent<DistanceJoint2D>();
+            connector.autoConfigureDistance = false;
+            connector.connectedBody = otherPlayer.endOfCord;
+            connector.distance = 0;
+            connector.enabled = false;
         }
     }
 
@@ -139,7 +149,7 @@ public class PlayerController : MonoBehaviour
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 stickPos = transform.position;
             }
-            else if(Input.GetKey(KeyCode.S) && grounded)
+            else if (Input.GetKey(KeyCode.S) && grounded)
             {
                 transform.position = stickPos;
             }
@@ -208,7 +218,7 @@ public class PlayerController : MonoBehaviour
             {
                 Tug();
             }
-            else if(Input.GetKey(KeyCode.RightShift))
+            else if (Input.GetKey(KeyCode.RightShift))
             {
                 Reel();
             }
@@ -310,8 +320,18 @@ public class PlayerController : MonoBehaviour
 
         //If we end up physically splitting the cord this code will be needed
 
-        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = true;
+         blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = true;
 
+        /*end.GetComponent<HingeJoint2D>().enabled = true;
+        end.GetComponent<HingeJoint2D>().connectedBody = otherPlayer.end.GetComponent<Rigidbody2D>();
+        if (redPlayer)
+        {
+            end.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(.5f, 0);
+        }
+        else
+        {
+            end.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(-.5f, 0);
+        }*/
     }
 
     void Disconnect()
@@ -326,22 +346,25 @@ public class PlayerController : MonoBehaviour
 
         //Use this code if we end up physically splitting the code
 
-        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = false;
+
+        blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = false;
+
+        //blue.endOfCord.GetComponent<HingeJoint2D>().enabled = false;
 
 
         //Turn off all cord joins, order doesn't matter
-       /* foreach (GameObject obj in allCordJoints)
-        {
-            obj.SetActive(false);
-        }
+        /* foreach (GameObject obj in allCordJoints)
+         {
+             obj.SetActive(false);
+         }
 
-        foreach (GameObject obj in otherPlayer.allCordJoints)
-        {
-            obj.SetActive(false);
-        }
+         foreach (GameObject obj in otherPlayer.allCordJoints)
+         {
+             obj.SetActive(false);
+         }
 
-        blue.GetComponent<HingeJoint2D>().enabled = false;
-        ropeSprite.enabled = false;*/
+         blue.GetComponent<HingeJoint2D>().enabled = false;
+         ropeSprite.enabled = false;*/
     }
 
     bool Connected()
@@ -352,6 +375,6 @@ public class PlayerController : MonoBehaviour
         {
             partToCheck = otherPlayer.endOfCord;
         }
-        return partToCheck.GetComponent<HingeJoint2D>().isActiveAndEnabled;
+        return partToCheck.GetComponent<DistanceJoint2D>().isActiveAndEnabled;
     }
 }
