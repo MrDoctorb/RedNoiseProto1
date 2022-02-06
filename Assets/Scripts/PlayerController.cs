@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     Vector2 stickPos;
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
+    [SerializeField] GameObject spawn;
     /// <summary>
     /// Declare local variables
     /// </summary>
@@ -349,5 +350,13 @@ public class PlayerController : MonoBehaviour
             partToCheck = otherPlayer.endOfCord;
         }
         return partToCheck.GetComponent<HingeJoint2D>().isActiveAndEnabled;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Hazard"))
+        {
+            gameObject.transform.position = spawn.transform.position;
+        }
     }
 }
