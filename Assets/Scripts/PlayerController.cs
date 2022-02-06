@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 1f)] [SerializeField] float slowdownRate;
     [SerializeField] bool redPlayer;
     [SerializeField] Rigidbody2D endOfCord;
+    [SerializeField] GameObject plug;
     public List<GameObject> allCordJoints = new List<GameObject>();
     Rigidbody2D rb;
     PlayerController otherPlayer;
@@ -52,10 +53,14 @@ public class PlayerController : MonoBehaviour
         if (redPlayer)
         {
             endOfCord = allCordJoints[allCordJoints.Count - 1].GetComponent<Rigidbody2D>();
+            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
+            end.transform.SetParent(endOfCord.transform);
         }
         else
         {
             endOfCord = allCordJoints[0].GetComponent<Rigidbody2D>();
+            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
+            end.transform.SetParent(endOfCord.transform);
         }
     }
 

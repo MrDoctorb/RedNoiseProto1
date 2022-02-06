@@ -4026,6 +4026,7 @@ MonoBehaviour:
   slowdownRate: 0.75
   redPlayer: 1
   endOfCord: {fileID: 0}
+  plug: {fileID: 4259791592648626350, guid: 4d6a30a3a7f102342a216da5c7a11f5c, type: 3}
   allCordJoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -36458,6 +36459,7 @@ MonoBehaviour:
   slowdownRate: 0.75
   redPlayer: 0
   endOfCord: {fileID: 0}
+  plug: {fileID: 4259791592648626350, guid: 4d6a30a3a7f102342a216da5c7a11f5c, type: 3}
   allCordJoints:
   - {fileID: 0}
   - {fileID: 0}
