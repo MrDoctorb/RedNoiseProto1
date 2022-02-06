@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float tugCooldown;
     [SerializeField] float maxSpeed;
     [Range(0f, 1f)] [SerializeField] float slowdownRate;
-    [SerializeField] bool redPlayer;
+    public bool redPlayer;
     [SerializeField] Rigidbody2D endOfCord;
+    [SerializeField] GameObject plug;
     public List<GameObject> allCordJoints = new List<GameObject>();
     Rigidbody2D rb;
     PlayerController otherPlayer;
@@ -50,13 +51,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        endOfCord = allCordJoints[allCordJoints.Count - 1].GetComponent<Rigidbody2D>();
+
         if (redPlayer)
         {
-            endOfCord = allCordJoints[allCordJoints.Count - 1].GetComponent<Rigidbody2D>();
+            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
+            end.transform.SetParent(endOfCord.transform);
         }
         else
         {
-            endOfCord = allCordJoints[0].GetComponent<Rigidbody2D>();
+            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
+            end.transform.SetParent(endOfCord.transform);
         }
     }
 
@@ -243,7 +248,6 @@ public class PlayerController : MonoBehaviour
         direction = direction.normalized;
         endOfCord.AddForce(direction * reelSpeed * Time.deltaTime);
         rb.AddForce(-direction * reelSpeed * Time.deltaTime);
-        print("AA");
     }
 
     /// <summary>
