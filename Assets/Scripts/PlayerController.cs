@@ -24,10 +24,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
 
-<<<<<<< HEAD
+
     [SerializeField] GameObject spawn;
 
->>>>>>> parent of 15bc55b (merge???)
+
     /// <summary>
     /// Declare local variables
     /// </summary>
