@@ -291,7 +291,7 @@ public class PlayerController : MonoBehaviour
 
             //If both players are holding the attack button and are close to eachother, connect
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.RightControl)
-                && Vector2.Distance(transform.position, otherPlayer.transform.position) <= 3)
+                && Vector2.Distance(transform.position, otherPlayer.transform.position) <= 5)
             {
                 Connect();
             }
