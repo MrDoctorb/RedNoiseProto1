@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7706119016834865295}
   m_Layer: 6
   m_Name: Plug
-  m_TagString: Untagged
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   ropeSprite: {fileID: 7706119017749619554}
+  spawn: {fileID: 0}
 --- !u!50 &7706119016834865286
 Rigidbody2D:
   serializedVersion: 4
