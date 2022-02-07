@@ -114,6 +114,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
         }
+
+        //Keep players in the camera
+        Vector2 boundingPos = transform.position;
+        Vector2 cameraPos = Camera.main.transform.position;
+        float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+        boundingPos.x = Mathf.Clamp(boundingPos.x, cameraPos.x - halfWidth, cameraPos.x + halfWidth);
+        boundingPos.y = Mathf.Clamp(boundingPos.y, cameraPos.y - Camera.main.orthographicSize, cameraPos.y + Camera.main.orthographicSize);
+
+        transform.position = boundingPos;
+
     }
 
 
