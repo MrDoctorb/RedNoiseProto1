@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
     [SerializeField] GameObject spawn;
 
+>>>>>>> parent of 15bc55b (merge???)
     /// <summary>
     /// Declare local variables
     /// </summary>
