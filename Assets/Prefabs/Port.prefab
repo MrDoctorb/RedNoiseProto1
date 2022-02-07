@@ -314,7 +314,7 @@ MonoBehaviour:
   - {fileID: 0}
   ground:
     serializedVersion: 2
-    m_Bits: 6656
+    m_Bits: 4608
   ropeSprite: {fileID: 0}
   spawn: {fileID: 0}
 --- !u!50 &2946095061247383091
