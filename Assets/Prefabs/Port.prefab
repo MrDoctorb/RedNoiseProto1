@@ -314,8 +314,9 @@ MonoBehaviour:
   - {fileID: 0}
   ground:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 6656
   ropeSprite: {fileID: 0}
+  spawn: {fileID: 0}
 --- !u!50 &2946095061247383091
 Rigidbody2D:
   serializedVersion: 4
