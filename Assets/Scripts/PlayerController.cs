@@ -25,13 +25,9 @@ public class PlayerController : MonoBehaviour
     Vector2 stickPos;
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
-<<<<<<< HEAD
-   
 
-
-=======
     [SerializeField] GameObject spawn;
->>>>>>> main
+
     /// <summary>
     /// Declare local variables
     /// </summary>
