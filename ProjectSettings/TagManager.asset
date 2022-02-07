@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hazard
-  - Red
-  - Blue
   layers:
   - Default
   - TransparentFX
@@ -19,8 +17,8 @@ TagManager:
   - Interactable
   - Ground
   - Hazard
-  - OnlyRed
-  - OnlyBlue
+  - 
+  - 
   - 
   - 
   - 

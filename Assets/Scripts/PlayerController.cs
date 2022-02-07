@@ -114,16 +114,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, slowdownRate), rb.velocity.y);
         }
-
-        //Keep players in the camera
-        Vector2 boundingPos = transform.position;
-        Vector2 cameraPos = Camera.main.transform.position;
-        float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
-        boundingPos.x = Mathf.Clamp(boundingPos.x, cameraPos.x - halfWidth, cameraPos.x + halfWidth);
-        boundingPos.y = Mathf.Clamp(boundingPos.y, cameraPos.y - Camera.main.orthographicSize, cameraPos.y + Camera.main.orthographicSize);
-
-        transform.position = boundingPos;
-
     }
 
 
@@ -291,7 +281,7 @@ public class PlayerController : MonoBehaviour
 
             //If both players are holding the attack button and are close to eachother, connect
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.RightControl)
-                && Vector2.Distance(transform.position, otherPlayer.transform.position) <= 5)
+                && Vector2.Distance(transform.position, otherPlayer.transform.position) <= 3)
             {
                 Connect();
             }
@@ -331,7 +321,7 @@ public class PlayerController : MonoBehaviour
         //If we end up physically splitting the cord this code will be needed
 
         blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = true;
-        blue.endOfCord.GetComponent<DistanceJoint2D>().connectedBody = blue.otherPlayer.endOfCord;
+
     }
 
     void Disconnect()

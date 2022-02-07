@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7706119016834865295}
   m_Layer: 6
   m_Name: Plug
-  m_TagString: Red
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 0.49411762, b: 0.548947, a: 1}
   m_FlipX: 0
@@ -123,9 +123,8 @@ MonoBehaviour:
   - {fileID: 0}
   ground:
     serializedVersion: 2
-    m_Bits: 2560
+    m_Bits: 512
   ropeSprite: {fileID: 7706119017749619554}
-  spawn: {fileID: 0}
 --- !u!50 &7706119016834865286
 Rigidbody2D:
   serializedVersion: 4
