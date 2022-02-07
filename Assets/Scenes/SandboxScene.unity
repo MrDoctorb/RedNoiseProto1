@@ -12013,6 +12013,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -177.33337, y: -99.79538}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 --- !u!1 &982099058
 GameObject:
   m_ObjectHideFlags: 0
@@ -12257,6 +12258,7 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+=======
 >>>>>>> main
 --- !u!1 &1180360202
 GameObject:
@@ -44375,6 +44377,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD
 --- !u!1 &1860612651
 GameObject:
   m_ObjectHideFlags: 0
@@ -44619,6 +44622,7 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+=======
 >>>>>>> main
 --- !u!1 &1979793459
 GameObject:

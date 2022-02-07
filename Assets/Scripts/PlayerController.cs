@@ -22,12 +22,16 @@ public class PlayerController : MonoBehaviour
     PlayerController otherPlayer;
     bool canTug = true;
     bool grounded;
+    Vector2 stickPos;
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
+<<<<<<< HEAD
    
 
 
+=======
     [SerializeField] GameObject spawn;
+>>>>>>> main
     /// <summary>
     /// Declare local variables
     /// </summary>
