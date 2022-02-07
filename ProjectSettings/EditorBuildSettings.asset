@@ -8,12 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 1163363597399574581997e577c60732
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/RopeTestScene.unity
-    guid: 96218b14c5c13ae4097ef37219ed52c3
+  - enabled: 1
+    path: Assets/Scenes/DemoLevel.unity
+    guid: 29b388adcc60f1044b92f712c0888bb6
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: c81cf8d68a00eca4c97e7f34f7b0f616
   - enabled: 1
     path: Assets/Scenes/SandboxScene.unity
     guid: 9d59b3668ff630f4ca83f1139d1df1e6
