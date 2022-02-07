@@ -22,7 +22,7 @@ public class RopeSpriteBehaviour : MonoBehaviour
 
     private void UpdateVertices()
     {
-        for (int i = 0; i < points.Count - 2; i++)
+        for (int i = 0; i < points.Count - 1; i++)
         {
             //Find and call reference to the position of a block in the list
             Vector2 vertex = points[i].localPosition;

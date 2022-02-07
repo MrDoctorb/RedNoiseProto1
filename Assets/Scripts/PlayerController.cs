@@ -10,13 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int gravity = 100;
     [SerializeField] int tugForce;
     [SerializeField] int attackForce;
-    [SerializeField] float reelSpeed;
     [SerializeField] float tugCooldown;
     [SerializeField] float maxSpeed;
     [Range(0f, 1f)] [SerializeField] float slowdownRate;
-    public bool redPlayer;
+    [SerializeField] bool redPlayer;
     [SerializeField] Rigidbody2D endOfCord;
-    [SerializeField] GameObject plug;
     public List<GameObject> allCordJoints = new List<GameObject>();
     Rigidbody2D rb;
     PlayerController otherPlayer;
@@ -46,26 +44,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        endOfCord = allCordJoints[allCordJoints.Count - 1].GetComponent<Rigidbody2D>();
-
         if (redPlayer)
         {
-            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
-            end.transform.SetParent(endOfCord.transform);
+            endOfCord = allCordJoints[allCordJoints.Count - 1].GetComponent<Rigidbody2D>();
         }
         else
         {
-            GameObject end = Instantiate(plug, endOfCord.transform.position, endOfCord.transform.rotation);
-            end.transform.SetParent(endOfCord.transform);
-        }
-
-        if(!redPlayer)
-        {
-            DistanceJoint2D connector = endOfCord.gameObject.AddComponent<DistanceJoint2D>();
-            connector.autoConfigureDistance = false;
-            connector.connectedBody = otherPlayer.endOfCord;
-            connector.distance = 0;
-            connector.enabled = false;
+            endOfCord = allCordJoints[0].GetComponent<Rigidbody2D>();
         }
     }
 
@@ -143,11 +128,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.S) && grounded)
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                stickPos = transform.position;
-            }
-            else if(Input.GetKey(KeyCode.S) && grounded)
-            {
-                transform.position = stickPos;
             }
             //Lighter on lift up
             else if (Input.GetKeyUp(KeyCode.S))
@@ -163,10 +143,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift) && canTug)
             {
                 Tug();
-            }
-            else if (Input.GetKey(KeyCode.LeftShift))
-            {
-                Reel();
             }
         }
 
@@ -193,11 +169,6 @@ public class PlayerController : MonoBehaviour
             {
 
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                stickPos = transform.position;
-            }
-            else if (Input.GetKey(KeyCode.DownArrow) && grounded)
-            {
-                transform.position = stickPos;
             }
             //Lighter on lift up
             else if (Input.GetKeyUp(KeyCode.DownArrow))
@@ -213,10 +184,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightShift) && canTug)
             {
                 Tug();
-            }
-            else if(Input.GetKey(KeyCode.RightShift))
-            {
-                Reel();
             }
         }
 
@@ -245,14 +212,6 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(tugCooldown);
         canTug = true;
-    }
-
-    void Reel()
-    {
-        Vector2 direction = transform.position - endOfCord.transform.position;
-        direction = direction.normalized;
-        endOfCord.AddForce(direction * reelSpeed * Time.deltaTime);
-        rb.AddForce(-direction * reelSpeed * Time.deltaTime);
     }
 
     /// <summary>
@@ -316,7 +275,7 @@ public class PlayerController : MonoBehaviour
 
         //If we end up physically splitting the cord this code will be needed
 
-        blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = true;
+        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = true;
 
     }
 
@@ -332,7 +291,7 @@ public class PlayerController : MonoBehaviour
 
         //Use this code if we end up physically splitting the code
 
-        blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = false;
+        blue.endOfCord.GetComponent<HingeJoint2D>().enabled = false;
 
 
         //Turn off all cord joins, order doesn't matter
@@ -358,14 +317,6 @@ public class PlayerController : MonoBehaviour
         {
             partToCheck = otherPlayer.endOfCord;
         }
-        return partToCheck.GetComponent<DistanceJoint2D>().isActiveAndEnabled;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Hazard"))
-        {
-            gameObject.transform.position = spawn.transform.position;
-        }
+        return partToCheck.GetComponent<HingeJoint2D>().isActiveAndEnabled;
     }
 }
