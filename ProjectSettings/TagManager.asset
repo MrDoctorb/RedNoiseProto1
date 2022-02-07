@@ -17,8 +17,8 @@ TagManager:
   - Interactable
   - Ground
   - Hazard
-  - 
-  - 
+  - OnlyRed
+  - OnlyBlue
   - 
   - 
   - 
