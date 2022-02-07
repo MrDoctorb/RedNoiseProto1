@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] SpriteShapeRenderer ropeSprite;
 
+<<<<<<< HEAD
     [SerializeField] GameObject spawn;
 
     /// <summary>

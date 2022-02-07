@@ -4165,8 +4165,10 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+<<<<<<< HEAD
 =======
 >>>>>>> main
+=======
 --- !u!1 &1180360202
 GameObject:
   m_ObjectHideFlags: 0
@@ -36580,6 +36582,7 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+<<<<<<< HEAD
 =======
 >>>>>>> main
 --- !u!1 &1979793459
