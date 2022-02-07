@@ -321,7 +321,7 @@ public class PlayerController : MonoBehaviour
         //If we end up physically splitting the cord this code will be needed
 
         blue.endOfCord.GetComponent<DistanceJoint2D>().enabled = true;
-
+        blue.endOfCord.GetComponent<DistanceJoint2D>().connectedBody = blue.otherPlayer.endOfCord;
     }
 
     void Disconnect()
