@@ -270,7 +270,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.29464814, g: 0.3664716, b: 0.735849, a: 1}
   m_FlipX: 0
@@ -314,8 +314,9 @@ MonoBehaviour:
   - {fileID: 0}
   ground:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4608
   ropeSprite: {fileID: 0}
+  spawn: {fileID: 0}
 --- !u!50 &2946095061247383091
 Rigidbody2D:
   serializedVersion: 4
